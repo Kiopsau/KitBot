@@ -2,9 +2,8 @@ package frc.robot;
 
 public final class Constants {
     public final class ShooterConstants {
-        public static final int CoralPort = 13; 
+        public static final int CoralPort = 3; 
         public static final double CoralSpeed = 1.0; 
-        public static final int CoralShoot = 1;
     }
 
     public final class DriverConstants {
