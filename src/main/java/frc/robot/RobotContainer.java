@@ -19,5 +19,6 @@ public class RobotContainer {
 
     private void configureBindings() {
         shooterController.x().onTrue(shooter.start(ShooterConstants.CoralSpeed)); 
+        shooterController.x().onFalse(shooter.stop()); 
     }
 }

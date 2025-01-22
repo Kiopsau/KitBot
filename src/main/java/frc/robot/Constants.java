@@ -10,6 +10,8 @@ public final class Constants {
         public static final int XBOXPort = 0; 
     }
 
+    public static final int XBOXPort = 0;
+
     /*public final class DriveTrain {
         public static final int 
     }*/ 

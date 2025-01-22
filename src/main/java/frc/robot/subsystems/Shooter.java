@@ -1,15 +1,17 @@
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.motorcontrol.Talon;
+import com.ctre.phoenix6.hardware.TalonFX; 
+import com.ctre.phoenix6.hardware.TalonFXS; 
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.ShooterConstants; 
 
 public class Shooter extends SubsystemBase {
-    private Talon motor; 
+    private TalonFX motor; 
     
     public Shooter() {
-        motor = new Talon(ShooterConstants.CoralPort); 
+        motor = new TalonFX(ShooterConstants.CoralPort);
+        new TalonFX(0); 
     }
 
     public void ShootCoral(double volts) {
