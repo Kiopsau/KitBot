@@ -10,8 +10,7 @@ public class Shooter extends SubsystemBase {
     private TalonFX motor; 
     
     public Shooter() {
-        motor = new TalonFX(ShooterConstants.CoralPort);
-        new TalonFX(0); 
+        motor = new TalonFX(ShooterConstants.CoralPort); 
     }
 
     public void ShootCoral(double volts) {
