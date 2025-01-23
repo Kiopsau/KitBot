@@ -8,11 +8,13 @@ import frc.robot.subsystems.Shooter;
 public class RobotContainer {
     public final Shooter shooter; 
     private final CommandXboxController shooterController; 
+    //private final CommandXboxController driverController; 
 
     public RobotContainer() {
         shooter = new Shooter();
 
-        shooterController = new CommandXboxController(DriverConstants.XBOXPort);
+        shooterController = new CommandXboxController(DriverConstants.XBOXPort); 
+        //driverController = new CommandXboxController(DriverConstants.XBOXPort); 
 
         configureBindings(); 
     }
