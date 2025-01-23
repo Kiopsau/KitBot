@@ -14,6 +14,4 @@ public class Driver {
     public void Drive() {
         DriveMotor.setVoltage(DriverConstants.DriveSpeed); 
     }
-
-    
 }
