@@ -1,12 +1,19 @@
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.motorcontrol.Talon;
-import frc.robot.Constants; 
+import com.ctre.phoenix6.hardware.TalonFX; 
+import edu.wpi.first.wpilibj2.command.Command; 
+import frc.robot.Constants.DriverConstants; 
 
 public class Driver {
-    private static Talon Drivemotor; 
+    private TalonFX DriveMotor; 
 
     public Driver () {
-        
+        DriveMotor = new TalonFX(DriverConstants.DrivePort); 
+    } 
+
+    public void Drive() {
+        DriveMotor.setVoltage(DriverConstants.DriveSpeed); 
     }
+
+    
 }

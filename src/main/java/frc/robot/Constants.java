@@ -8,6 +8,8 @@ public final class Constants {
 
     public final class DriverConstants {
         public static final int XBOXPort = 0; 
+        public static final int DrivePort = 0; 
+        public static final double DriveSpeed = 1.0; 
     }
 
     public static final int XBOXPort = 0;
