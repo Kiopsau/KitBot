@@ -10,6 +10,11 @@ public final class Constants {
         public static final int XBOXPort = 0; 
         public static final int DrivePort = 0; 
         public static final double DriveSpeed = 1.0; 
+        
+        public static final int Left1Port = 0; 
+        public static final int Left2Port = 0; 
+        public static final int Right1Port = 0; 
+        public static final int Right2Port = 0; 
     }
 
     public static final int XBOXPort = 0;
