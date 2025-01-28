@@ -1,36 +1,41 @@
+// Copyright (c) FIRST and other WPILib contributors.
+// Open Source Software; you can modify and/or share it under the terms of
+// the WPILib BSD license file in the root directory of this project.
+
 package frc.robot;
 
+import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
-import frc.robot.Constants.ShooterConstants;
-import frc.robot.Constants.DriverConstants;
-import frc.robot.subsystems.Driver;
+import frc.robot.Constants.OIConstants;
+import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Shooter;
 
 public class RobotContainer {
-    public final Shooter shooter; 
-    public final Driver driver; 
-    private final CommandXboxController shooterController; 
-    //private final CommandXboxController driverController; 
+    public final Shooter shooter;
+    public final DriveTrain drivetrain;
+
+    private final CommandXboxController controller;  
 
     public RobotContainer() {
         shooter = new Shooter();
-        driver = new Driver(); 
+        drivetrain = new DriveTrain();
 
-        shooterController = new CommandXboxController(DriverConstants.XBOXPort); 
-        //driverController = new CommandXboxController(DriverConstants.XBOXPort); 
+        controller = new CommandXboxController(OIConstants.XBOXPort);
 
-        configureBindings(); 
+        configureBindings();
     }
 
     private void configureBindings() {
-        shooterController.x().onTrue(shooter.start(ShooterConstants.CoralSpeed)); 
-        shooterController.x().onFalse(shooter.stop()); 
+        drivetrain.setDefaultCommand(drivetrain.drive(controller::getLeftY, controller::getRightY));
 
+        controller.x().onTrue(shooter.start());
+        controller.x().onFalse(shooter.stop());
+        controller.y().onTrue(shooter.astart());
+        controller.y().onFalse(shooter.stop());
+    }
 
-        shooterController.rightTrigger().onTrue(driver.DriveRight(DriverConstants.DriveSpeed)); 
-        shooterController.rightTrigger().onFalse(driver.DriveRight(0)); 
-
-        shooterController.leftTrigger().onTrue(driver.DriveLeft(DriverConstants.DriveSpeed)); 
-        shooterController.leftTrigger().onFalse(driver.DriveLeft(0)); 
+    public Command getAutonomousCommand() {
+        return Commands.print("No autonomous command configured");
     }
 }
