@@ -75,7 +75,7 @@ public class DriveTrain extends SubsystemBase {
             double rightAxis = rightSupplier.getAsDouble();
 
             double leftSpeed = leftAxis * DriveConstants.driveSpeed;
-            double rightSpeed = rightAxis * DriveConstants.driveSpeed * 1.2;
+            double rightSpeed = rightAxis * DriveConstants.driveSpeed * 1.01;
 
             leftMain.setVoltage(leftSpeed);
             rightMain.setVoltage(rightSpeed);

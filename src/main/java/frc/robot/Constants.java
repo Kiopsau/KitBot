@@ -7,7 +7,7 @@ public final class Constants {
 
     public final class ShooterConstants {
         public static int shooterCAN = 5;
-        public static double shooterSpeed = 4.0;
+        public static double shooterSpeed = 4.0; 
     }
 
     public final class DriveConstants {
