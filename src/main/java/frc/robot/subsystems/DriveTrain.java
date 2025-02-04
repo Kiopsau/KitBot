@@ -69,7 +69,7 @@ public class DriveTrain extends SubsystemBase {
     //     });
     // }
 
-    public Command drive(DoubleSupplier leftSupplier, DoubleSupplier rightSupplier) {
+    /*public Command drive(DoubleSupplier leftSupplier, DoubleSupplier rightSupplier) {
         return run(() -> {
             double leftAxis = leftSupplier.getAsDouble();
             double rightAxis = rightSupplier.getAsDouble();
@@ -83,5 +83,21 @@ public class DriveTrain extends SubsystemBase {
             SmartDashboard.putNumber("left_speed", leftSpeed);
             SmartDashboard.putNumber("right_speed", rightSpeed);
         });
+    }*/ 
+    
+    public Command drive(DoubleSupplier xSupplier, DoubleSupplier ySupplier) {
+        return run(() -> {
+            double xAxis = xSupplier.getAsDouble(); 
+            double yAxis = ySupplier.getAsDouble(); 
+
+            double LeftSpeed = DriveConstants.driveSpeed*(yAxis - xAxis/2); 
+            double RightSpeed = DriveConstants.driveSpeed*(yAxis - xAxis/2)*1.01; 
+
+            leftMain.setVoltage(leftSpeed); 
+            rightMain.setVoltage(rightSpeed); 
+
+            //SmartDashboard.putNumber("left_speed", leftSpeed); 
+            //SmartDashboard.putNumber("right_speed", rightSpeed); 
+        })
     }
 }

@@ -29,7 +29,7 @@ public class RobotContainer {
     }
 
     private void configureBindings() {
-        drivetrain.setDefaultCommand(drivetrain.drive(controller::getLeftY, controller::getRightY));
+        drivetrain.setDefaultCommand(drivetrain.drive(controller::getLeftX, controller::getLeftY));
 
         controller.x().onTrue(shooter.start());
         controller.x().onFalse(shooter.stop());
