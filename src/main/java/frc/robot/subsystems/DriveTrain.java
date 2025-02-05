@@ -16,9 +16,9 @@ public class DriveTrain extends SubsystemBase {
     private WPI_TalonSRX leftMain = new WPI_TalonSRX(DriveConstants.leftMainCAN);
     private WPI_VictorSPX leftFollow = new WPI_VictorSPX(DriveConstants.leftFollowCAN);
     private WPI_TalonSRX rightMain = new WPI_TalonSRX(DriveConstants.rightMainCAN);
-    private WPI_VictorSPX rightFollow = new WPI_VictorSPX(DriveConstants.rigthFollowCAN);
+    private WPI_VictorSPX rightFollow = new WPI_VictorSPX(DriveConstants.rightFollowCAN);
 
-    public DriveTrain() {
+    public DriveTrain () {
         leftMain.configFactoryDefault();
         rightMain.configFactoryDefault();
 
@@ -85,7 +85,7 @@ public class DriveTrain extends SubsystemBase {
         });
     }*/ 
     
-    public Command drive(DoubleSupplier xSupplier, DoubleSupplier ySupplier) {
+    public Command drive (DoubleSupplier xSupplier, DoubleSupplier ySupplier) {
         return run(() -> {
             double xAxis = xSupplier.getAsDouble(); 
             double yAxis = ySupplier.getAsDouble(); 
@@ -93,11 +93,11 @@ public class DriveTrain extends SubsystemBase {
             double LeftSpeed = DriveConstants.driveSpeed*(yAxis - xAxis/2); 
             double RightSpeed = DriveConstants.driveSpeed*(yAxis - xAxis/2)*1.01; 
 
-            leftMain.setVoltage(leftSpeed); 
-            rightMain.setVoltage(rightSpeed); 
+            leftMain.setVoltage(LeftSpeed); 
+            rightMain.setVoltage(RightSpeed); 
 
             //SmartDashboard.putNumber("left_speed", leftSpeed); 
             //SmartDashboard.putNumber("right_speed", rightSpeed); 
-        })
+        }); 
     }
 }
