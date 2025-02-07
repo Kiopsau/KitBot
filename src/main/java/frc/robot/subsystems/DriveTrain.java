@@ -91,13 +91,15 @@ public class DriveTrain extends SubsystemBase {
             double yAxis = ySupplier.getAsDouble(); 
 
             double LeftSpeed = DriveConstants.driveSpeed*(yAxis - xAxis/2); 
-            double RightSpeed = DriveConstants.driveSpeed*(yAxis - xAxis/2)*1.01; 
+            double RightSpeed = DriveConstants.driveSpeed*(yAxis + xAxis/2)*1.01; 
 
             leftMain.setVoltage(LeftSpeed); 
             rightMain.setVoltage(RightSpeed); 
 
-            //SmartDashboard.putNumber("left_speed", leftSpeed); 
-            //SmartDashboard.putNumber("right_speed", rightSpeed); 
+            SmartDashboard.putNumber("X", xAxis); 
+            SmartDashboard.putNumber("Y", yAxis);
+            SmartDashboard.putNumber("rightSpeed", RightSpeed);
+            SmartDashboard.putNumber("leftSpeed", LeftSpeed);
         }); 
     }
 }

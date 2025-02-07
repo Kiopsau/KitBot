@@ -21,9 +21,10 @@ public final class Constants {
         public static final double turnSpeed = 1.0;
     } 
 
-    public final class CoralConstants {
-        public static final int rotateCAN = 1; 
-        public static final int pidtalonbtw = 5; 
-        public static final double CoralSpeed = 1; 
+    public final class AlgaeConstants {
+        public static final int rotateCAN = 7; 
+        public static final int armCAN = 6; 
+
+        public static final double AlgaeSpeed = -3.0; 
     }
 }
