@@ -10,9 +10,9 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.Constants.DriveConstants;
 import frc.robot.Constants.OIConstants;
 import frc.robot.Constants.ShooterConstants;
-import frc.robot.subsystems.Algae;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Shooter;
+import frc.robot.subsystems.Algae.Algae;
 
 public class RobotContainer {
     public final Shooter shooter;
