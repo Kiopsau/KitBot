@@ -11,6 +11,7 @@ import frc.robot.Constants.DriveConstants;
 import frc.robot.Constants.OIConstants;
 import frc.robot.Constants.ShooterConstants;
 import frc.robot.subsystems.DriveTrain;
+import frc.robot.subsystems.Lights;
 import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.Algae.Algae;
 
@@ -18,6 +19,7 @@ public class RobotContainer {
     public final Shooter shooter;
     public final DriveTrain drivetrain; 
     public final Algae algae; 
+    public final Lights lights; 
 
     private final CommandXboxController controller;  
 
@@ -25,6 +27,7 @@ public class RobotContainer {
         shooter = new Shooter();
         drivetrain = new DriveTrain(); 
         algae = new Algae(); 
+        lights = new Lights(); 
 
         controller = new CommandXboxController(OIConstants.XBOXPort);
 
@@ -43,6 +46,9 @@ public class RobotContainer {
         controller.a().onFalse(algae.stopAlgae()); 
         controller.b().onTrue(algae.unshootAlgae()); 
         controller.b().onFalse(algae.stopAlgae()); 
+
+        controller.rightBumper().onTrue(lights.setLights()); 
+        lights.setLights(); 
     }
 
     public Command getAutonomousCommand() {

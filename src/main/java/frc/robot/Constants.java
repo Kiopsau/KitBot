@@ -36,5 +36,9 @@ public final class Constants {
         public static final double kG = 5.0; 
 
         public static final double armZero = 0.46; 
+    } 
+
+    public final class LEDConstants {
+        public static final int LEDCAN = 8; 
     }
 }
